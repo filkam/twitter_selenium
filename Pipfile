@@ -12,6 +12,7 @@ webdrivermanager = "*"
 configparser = "*"
 image = "*"
 behave-pytest = "*"
+allure-behave = "*"
 
 [requires]
 python_version = "3.7"

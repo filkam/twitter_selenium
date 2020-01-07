@@ -6,7 +6,3 @@ As a user I want to log in to twitter.com and tweet a message
     When user fills credentials in the form and submits
     Then user is logged in and can see the Home page
 
-
-  Scenario: Tweet a message
-    Given user is on Twitter home page
-

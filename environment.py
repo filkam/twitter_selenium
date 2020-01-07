@@ -2,12 +2,14 @@ from webdrivermanager import GeckoDriverManager, ChromeDriverManager
 from configparser import ConfigParser
 from selenium import webdriver
 import os
+from allure_behave.hooks import allure_report
 
 ROOT_DIR = os.path.dirname(os.path.abspath(__file__))  # serves to reference root path of the project for use in the fw
 SETTINGS_PATH = os.path.join(ROOT_DIR, 'settings.ini')
 cfg = ConfigParser()
 cfg.read(SETTINGS_PATH)
 
+allure_report(os.path.join(ROOT_DIR, 'reports/'))
 
 # TODO specify webdriver installation path to be within the project and include binaries in .gitignore
 def get_driver():
