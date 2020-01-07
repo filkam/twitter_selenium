@@ -1,8 +1,9 @@
 from pages.page import Page
 
 
-class TwitterLoginPage(Page):
+class LoginPage(Page):
     """Page object for Twitter.com login page"""
+    LOGIN_URL = "https://twitter.com/login"
 
     def __init__(self, driver):
         super().__init__(driver)
@@ -14,3 +15,4 @@ class TwitterLoginPage(Page):
         password_input_element = self.driver.find_element_by_css_selector(".js-password-field")
         password_input_element.send_keys(password)
         self.driver.find_element_by_css_selector("button.submit").click()
+

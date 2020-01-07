@@ -27,6 +27,7 @@ def before_feature(context, feature):
     """ Defines actions to be taken before every feature """
     context.driver = get_driver()
     context.driver.implicitly_wait(cfg['meta']['ImplicitWait'])
+    context.driver.maximize_window()
 
 
 def after_feature(context, feature):

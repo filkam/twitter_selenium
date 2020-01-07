@@ -1,8 +1,10 @@
 Feature: tweeting on twitter.com
-As a user I want to log in to twitter.com and tweet a message
+As a logged user I want to tweet a message from my home page
 
-  Scenario: Log in with valid credentials
-    Given user is on Twitter login page
-    When user fills credentials in the form and submits
-    Then user is logged in and can see the Home page
+  Scenario: Tweet a message
+    Given user is logged in
+    When user clicks the tweet button
+    And user inputs the content into the text box
+    And user clicks Tweet button
+    Then submitted tweet is published
 
