@@ -1,5 +1,4 @@
 
-
 class Page:
     """ Generic Page class that contains basic actions applicable to all pages """
 

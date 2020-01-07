@@ -16,3 +16,9 @@ class LoginPage(Page):
         password_input_element.send_keys(password)
         self.driver.find_element_by_css_selector("button.submit").click()
 
+    def is_login_page(self):
+        try:
+            WebDriverWait(self.driver, 10).until(EC.presence_of_element_located((By.CSS_SELECTOR, '.signin - wrapper')))
+            return True
+        except TimeoutException:
+            return False

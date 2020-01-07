@@ -3,15 +3,17 @@ from configparser import ConfigParser
 from selenium import webdriver
 import os
 from allure_behave.hooks import allure_report
+import random
+import string
 
 ROOT_DIR = os.path.dirname(os.path.abspath(__file__))  # serves to reference root path of the project for use in the fw
 SETTINGS_PATH = os.path.join(ROOT_DIR, 'settings.ini')
+allure_report(os.path.join(ROOT_DIR, 'reports/'))
+
 cfg = ConfigParser()
 cfg.read(SETTINGS_PATH)
 
-allure_report(os.path.join(ROOT_DIR, 'reports/'))
 
-# TODO specify webdriver installation path to be within the project and include binaries in .gitignore
 def get_driver():
     """ Handles download and installation of a required webdriver according to parameters set in settings.ini """
     browser = cfg['meta']['Browser']
@@ -35,9 +37,7 @@ def after_feature(context, feature):
     context.driver.quit()
 
 
-# def take_screenshot(context):
-#     """ Takes a screenshot of the rendered content and crops the image """
-#     context.driver.save_screenshot("screenshot.png")  # TODO add formatting to filename
-#     img = Image.open("screenshot.png")
-#     cropped_filename = "/tmp/cropped-screenshot.png"
-#     img.crop((0, 0, img.size[0], 400)).save(cropped_filename)
+def generate_random_string():
+    """ Generate a random string with the combination of lowercase and uppercase letters """
+    letters = string.ascii_letters
+    return ''.join(random.choice(letters) for i in range(70))

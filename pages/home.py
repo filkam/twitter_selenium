@@ -32,15 +32,16 @@ class HomePage(Page):
         profile_link.click()
 
     def tweet_on_page(self, content):
+        self.click_profile()
         try:
-            WebDriverWait(self.driver, 20).until(content in self.driver.page_source)
+            WebDriverWait(self.driver, 20).until(EC.text_to_be_present_in_element((By.CSS_SELECTOR, '.r-1ljd8xs'), content))
             return True
         except TimeoutException:
             raise
 
 
-
 class TweetPopup(HomePage):
+    """ Page object handling the new tweet popup window """
 
     def __init__(self, driver):
         super().__init__(driver)

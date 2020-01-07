@@ -10,7 +10,6 @@ selenium = "*"
 behave = "*"
 webdrivermanager = "*"
 configparser = "*"
-image = "*"
 behave-pytest = "*"
 allure-behave = "*"
 
